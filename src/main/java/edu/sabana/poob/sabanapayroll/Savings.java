@@ -1,8 +1,15 @@
 package edu.sabana.poob.sabanapayroll;
+import java.util.UUID;
 
 public class Savings extends BankAccount {
     public final double DEPOSIT_DISCOUNT = 2000;
     public final double ANNUAL_INTEREST_RATE = 0.01;
+
+    public Savings() {}
+
+    public Savings(UUID employeeId) {
+        idEmployee = employeeId;
+    }
 
     @Override
     public double getDepositDiscount() {

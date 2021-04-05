@@ -1,16 +1,14 @@
-package edu.sabana.poob.sabanapayroll;
+package edu.sabana.poob.sabanapayroll;//package sabananominatest;
 
-import org.junit.jupiter.api.Assertions;
+
 import org.junit.jupiter.api.Test;
-import java.util.Collections;
-import static org.junit.Assert.assertEquals;
+
 
 import java.util.ArrayList;
-import java.util.Scanner;
 import java.util.UUID;
+
 import static java.util.UUID.randomUUID;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.Assert.assertEquals;
 
 public class SabanaNominaTest {
    private final SabanaPayroll sabanaUniversity;
@@ -77,7 +75,7 @@ public class SabanaNominaTest {
 
         assertEquals(salarioEsperado, sabanaUniversity.calculateEmployeeSalary(idEmployee), 0);
     }
-
+    
     // Test para salario de todos los empleados de un depto
     @Test
     public void testSalarioDepto() {
@@ -101,6 +99,48 @@ public class SabanaNominaTest {
         System.out.println("\nTest para Universidad: , Salario esperado: " + salarioEsperado);
 
         assertEquals(salarioEsperado, sabanaUniversity.calculateUniversitySalaries(), 0);
+    }
+
+    @Test
+    public void testdepositToEmployee() {
+        sabanaUniversity.printPayroll();  // Imprime los datos de todos los empleados
+
+        UUID idEmployee = sabanaUniversity.getDeptoByPos(2).getEmployees().get(3).getId();
+        boolean depositoOK = true;
+        System.out.println("\nTest para deposito a empleado con UUID: " + idEmployee +
+                ", Resultado depósito: " + depositoOK);
+
+        double valDeposit = 3000;
+        assertEquals(depositoOK, sabanaUniversity.depositToEmployee(idEmployee, valDeposit, 'S'));
+    }
+
+    @Test
+    public void testcalculateEmployeeBalance() {
+        sabanaUniversity.printPayroll();  // Imprime los datos de todos los empleados
+
+        UUID idEmployee = sabanaUniversity.getDeptoByPos(2).getEmployees().get(3).getId();
+
+        sabanaUniversity.depositToEmployee(idEmployee,570000, 'C');
+        double balanceEsperado = 565000;
+        System.out.println("\nTest para calculo balance de empleado con UUID: " + idEmployee +
+                ", Balance: " + balanceEsperado);
+
+        assertEquals(balanceEsperado, sabanaUniversity.calculateEmployeeBalance(idEmployee), 0);
+    }
+
+    @Test
+    public void testcalculateAllEmployeesBalance() {
+        sabanaUniversity.printPayroll();  // Imprime los datos de todos los empleados
+
+        UUID idEmployee_1 = sabanaUniversity.getDeptoByPos(1).getEmployees().get(2).getId();
+        UUID idEmployee_2 = sabanaUniversity.getDeptoByPos(2).getEmployees().get(3).getId();
+        UUID idEmployee_3 = sabanaUniversity.getDeptoByPos(2).getEmployees().get(1).getId();
+
+        sabanaUniversity.depositToEmployee(idEmployee_1,570000, 'C');
+        sabanaUniversity.depositToEmployee(idEmployee_2,1E6, 'S');
+        sabanaUniversity.depositToEmployee(idEmployee_3,1E6, 'S');
+        double valEsperado = 2.561E6;
+        assertEquals(valEsperado, sabanaUniversity.calculateAllEmployeesBalance(), 0);
     }
 
 }

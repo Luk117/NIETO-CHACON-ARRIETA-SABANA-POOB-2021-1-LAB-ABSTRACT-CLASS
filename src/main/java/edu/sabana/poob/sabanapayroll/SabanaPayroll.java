@@ -5,6 +5,7 @@ import java.util.UUID;
 
 public class SabanaPayroll {
    private static ArrayList<Department> arrDeptos;
+   private static ArrayList<BankAccount> arrAccounts;
 
    public SabanaPayroll() {
    }
@@ -80,5 +81,63 @@ public class SabanaPayroll {
               System.out.println(arrDeptos.get(i).getEmployees().get(j).toString());
            }
        }
+
+   }
+
+   public boolean depositToEmployee(UUID employeeId, double deposit, char accType) {
+      boolean hallado = false;
+      for (int i = 0; i < arrDeptos.size() && !hallado; i++) {   // recorre ArrayList Department
+
+         for (int j = 0; j < arrDeptos.get(i).getEmployees().size() && !hallado; j++) {   // recorre ArrayList Employee
+            if (arrDeptos.get(i).getEmployees().get(j).getId().equals(employeeId)) {
+               hallado = true;
+            }
+         }
+      }
+      if (!hallado) {
+         System.out.println("Empleado con UUID: " + employeeId + " no hallado.\n");
+         return false;
+      }
+      // Paso 1: Validar que el empleado exista
+      int pos = 0;
+      if ((pos = accountPosition(employeeId)) < 0) {
+         if (accType == 'C')
+            arrAccounts.add(new Checking(employeeId));
+         else
+            arrAccounts.add(new Savings(employeeId));
+      }
+
+      // Paso 2: Verificada la cuenta del empleado, se realiza el depósito
+      if (pos < 0)  pos = arrAccounts.size() - 1;
+      return arrAccounts.get(pos).deposit(deposit);
+   }
+
+   public double calculateEmployeeBalance(UUID employeeId) {
+      // Paso 1: Validar que el empleado exista
+      int  pos = 0;
+      if ((pos = accountPosition(employeeId)) < 0) {
+         return 0.0;
+      }
+      // Verificar que exista la cuenta (si no existe retorno 0, si existe retorna getBalance())
+      return arrAccounts.get(pos).getBalance();
+   }
+
+   public double calculateAllEmployeesBalance() {
+      // recorre todos los empleados de todos los deptos y calcula la sumatoria de sus balances
+      double balance = 0.0;
+      for (int j = 0; j < arrAccounts.size(); j++) {   // recorre ArrayList arrAccounts
+         balance += arrAccounts.get(j).getBalance();
+      }
+      return balance;
+   }
+
+   public int accountPosition(UUID employeeId) {
+      if (arrAccounts == null) {
+         arrAccounts = new ArrayList<BankAccount>();
+      }
+      int i = 0;
+      for (; i < arrAccounts.size() && !arrAccounts.get(i).getEmployee().equals(employeeId); i++) {
+      }
+      return (i < arrAccounts.size() ? i : -1);
    }
 }
