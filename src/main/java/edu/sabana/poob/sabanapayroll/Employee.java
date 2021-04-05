@@ -104,3 +104,5 @@ class EmployeebyHours  extends Employee {
       return toString_0() + calculateSalary() + ", pago por horas.";
    }
 }
+
+//PART 4 UPDATE
