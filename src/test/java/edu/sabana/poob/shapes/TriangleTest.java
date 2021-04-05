@@ -1,7 +1,9 @@
 package edu.sabana.poob.shapes;
 
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
@@ -58,6 +60,25 @@ public class TriangleTest {
         assertEquals("This is a Triangle with color Navy and sides: 15.0,15.0,15.0", t5.toString());
         assertEquals("This is a Triangle with color Scarlett and sides: 60.0,60.0,30.0", t6.toString());
 
+    }
+    @Test
+    public void ItsEquilateral() {
+
+        Assertions.assertTrue(t1.isEquilateral());
+        Assertions.assertTrue(t2.isEquilateral());
+        Assertions.assertFalse(t3.isEquilateral());
+        Assertions.assertFalse(t4.isEquilateral());
+        Assertions.assertTrue(t5.isEquilateral());
+    }
+
+    @Test
+    public void ItsIsosceles() {
+        Assertions.assertFalse(t1.isIsosceles());
+        Assertions.assertFalse(t2.isIsosceles());
+        Assertions.assertTrue(t3.isIsosceles());
+        Assertions.assertFalse(t4.isIsosceles());
+        Assertions.assertFalse(t5.isIsosceles());
+        Assertions.assertFalse(t6.isIsosceles());
     }
 
 
