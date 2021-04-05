@@ -2,7 +2,7 @@ package edu.sabana.poob.sabanapayroll;//package sabananominatest;
 
 import java.util.UUID;
 
-public class Employee {
+public abstract class Employee {
    final double HOURVALUE = 45000;
    final double VALORCOMISION = 23000;
    private UUID id;

@@ -23,3 +23,38 @@ PRUEBAS DE CODIGO:
 **SQUARETEST**
 
 ![img_6.png](img_6.png)
+
+
+##PART2 - SABANAPAYROLL
+
+![img_7.png](img_7.png)
+![img_8.png](img_8.png)
+
+**LA CLASE EMPLOYEE PODRIA SER ABSTRACTA**
+
+![img_9.png](img_9.png)
+
+##PARTE3 
+
+BanckAccount
+
+![img_10.png](img_10.png)
+
+Checking 
+
+![img_11.png](img_11.png)
+
+**CheckingTest**
+
+![img_12.png](img_12.png)
+
+**SavingTest**
+
+![img_13.png](img_13.png)
+
+##PART IV
+
+
+
+
+
