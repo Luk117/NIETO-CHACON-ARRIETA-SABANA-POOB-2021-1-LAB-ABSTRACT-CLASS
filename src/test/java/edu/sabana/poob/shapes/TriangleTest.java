@@ -76,9 +76,9 @@ public class TriangleTest {
         Assertions.assertFalse(t1.isIsosceles());
         Assertions.assertFalse(t2.isIsosceles());
         Assertions.assertTrue(t3.isIsosceles());
-        Assertions.assertFalse(t4.isIsosceles());
+        Assertions.assertTrue(t4.isIsosceles());
         Assertions.assertFalse(t5.isIsosceles());
-        Assertions.assertFalse(t6.isIsosceles());
+        Assertions.assertTrue(t6.isIsosceles());
     }
 
 
