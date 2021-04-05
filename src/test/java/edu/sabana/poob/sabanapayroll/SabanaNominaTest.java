@@ -1,4 +1,4 @@
-//PART 4 UPDATE
+//PARTE 4 UPDATE
 package edu.sabana.poob.sabanapayroll;//package sabananominatest;
 
 

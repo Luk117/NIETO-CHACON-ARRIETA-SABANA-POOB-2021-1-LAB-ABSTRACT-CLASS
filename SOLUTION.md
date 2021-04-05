@@ -1,4 +1,4 @@
-##PART 1 
+## PART I ##
 
 **DESIGN**
 
@@ -25,7 +25,7 @@ PRUEBAS DE CODIGO:
 ![img_6.png](img_6.png)
 
 
-##PART2 - SABANAPAYROLL
+## PART II ## - SABANAPAYROLL
 
 ![img_7.png](img_7.png)
 ![img_8.png](img_8.png)
@@ -34,7 +34,7 @@ PRUEBAS DE CODIGO:
 
 ![img_9.png](img_9.png)
 
-##PARTE3 
+## PART III ##
 
 BanckAccount
 
@@ -52,7 +52,7 @@ Checking
 
 ![img_13.png](img_13.png)
 
-##PART IV
+## PART IV ##
 
 
 **DIAGRAMA DE SEQUENCIA**
@@ -64,3 +64,8 @@ Checking
 ![img_15.png](img_15.png)
 
 
+## PART V ##
+
+![img_16.png](img_16.png)
+
+![img_17.png](img_17.png)
