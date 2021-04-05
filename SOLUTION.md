@@ -55,6 +55,12 @@ Checking
 ##PART IV
 
 
+**DIAGRAMA DE SEQUENCIA**
 
+![img_14.png](img_14.png)
+
+**EVIDENCIA PRUEBAS**
+
+![img_15.png](img_15.png)
 
 
